@@ -3,6 +3,7 @@ name: Hello World (Multiplatform)
 on:
   push:
     branches:
+      - test_workflow_selfhosted_runner
       - main
       - v*-branch
       - collab-*
@@ -25,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, windows-2022]
+        os: [self-hosted]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
